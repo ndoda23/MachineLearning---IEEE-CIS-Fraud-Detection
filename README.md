@@ -150,4 +150,5 @@ dagshub ლინკი:  https://dagshub.com/ndoda23/MachineLearning---IEEE-CIS
 
 საბოლოო შედეგად მაინც ავარჩიე LightGBM რომელმაც ოდნავ უფრო უკეთესი შედეგი მომცა ვიდრე XGBoost, მეორე ადგილზე უდაოდ XGBoost გავიდა.
 
+![finalresult](assets/score.png)
 
