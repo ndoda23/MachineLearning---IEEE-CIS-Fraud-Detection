@@ -14,11 +14,11 @@ ML-assignment-1
  ┣━ assets            
       ┗━ png files
  ┣━ model_experiment_XGBoost.ipynb         ---> model:XGBoost , Feature Engineering, Selection.
- ┣━ model-experiment-decisionTree.ipynb        ---> model:Decision Tree
- ┣━ model-experiment-linearRegression.ipynb              ---> model:Linear Regression
- ┣━ model-experiment-lightgbm.ipynb            ---> model:lightGBM
+ ┣━ model_experiment_decisionTree.ipynb        ---> model:Decision Tree
+ ┣━ model_experiment_linearRegression.ipynb              ---> model:Logistic Regression
+ ┣━ model_experiment_lightgbm.ipynb            ---> model:lightGBM
  ┣━ preporcessing.py                 ---> for classes
- ┣━ model-inference.ipynb                  ---> საუკეთესო მოდელი
+ ┣━ model_inference.ipynb                  ---> საუკეთესო მოდელი
  ┗━ README.md
  ```
 
@@ -114,10 +114,21 @@ Train ROC-AUC: 0.9563
 CV AUC Mean: 0.9365
  
 
-### Linear Regression
+### logistic Regression
 
+ასევე ვცადე ლოჯისტიკ რეგრესიის რამდენიმე ვარიანტიც , რომელმაც საკამოდ სოლიდურიო შედეგი დადო.
 
-## MlFlow Tracking
+1. პირველ ექსპერიმენტზე ვცადე მოდელი l2 რეგულარიზაციით რამაც ტრეინის შედეგი მომცა 0.86,ხოლო ვალიდაციის 0.856. სხვაობა ძალიან მინიმალურია რაც იდეალურია.
+თუმცა logistic regression ის მინუსის დანახვაში დამეხმარა f1 მეტრიკა ,რომელიც საკმაოდ დაბალი იყო. იგი მიუთითებს რომ მოდელსუჭირს ბალანსის პოვნა Precision სა და recalls შორის.
+
+2. აქ გამოვიყენე class_weight='balanced' რითაც recall საკმაოდ გაუმჯობესდა - ბალანსირებამ აიძულა მოდელი, რომ თაღლითური შემთხვევები უფრო პრიორიტეტულად აღექვა
+ და შედეგად დაიჭირა მათი 73%
+
+რეგულარიზაციამ და ბალანსმა მცირედით გააუმჯობესა AUC -ის შედეგიც
+
+საბოლოოდ ლოჯისტიკური რეგრესია მაინც წრფივად ფიქრობს და ამ competition სთვის საჭიროა უფრო ძლიერი მოდელი.
+
+## MLFlow Tracking
 
 მლფლოუზე შევეცადე დამელოგა თითქმის ყველა ექსპერიმენტი რაც ჩავატარე. შევქმენი სხვადასხვა მოდელებისთვის ცალ-ცალკე 'ფაილი' , რამაც ბევრად თვალსაჩინო
 გახადა ექსპერიმენტები.
@@ -125,6 +136,14 @@ CV AUC Mean: 0.9365
 dagshub ლინკი:  https://dagshub.com/ndoda23/MachineLearning---IEEE-CIS-Fraud-Detection
 
 ექსპერიმენტების ლინკი: https://dagshub.com/ndoda23/MachineLearning---IEEE-CIS-Fraud-Detection.mlflow/#/experiments
+
+## გამოყენებული მეტრიკები 
+
+1. გამოვიყენე ROC-AUC - ეს არის ჩვენი მთავარი მეტრიკა რითაც საბოლოო სქორს ვიღებთ. ის ზომავს მოდელის უნარს, განასხვავოს ერთმანეთისგან კლასები (თაღლითი vs პატიოსანი მომხმარებელი).
+
+2. Recall - პასუხობს კითხვას თუ არსებული თაღლითობებიდან რამდენი დაიჭირა მოდელმა.
+
+3. F1-Score - გვიჩვენებს ბალანსს. თუ Recall მაღალია, მაგრამ F1 დაბალი (Logistic Regressionში როგორც მოხდა), ეს ნიშნავს, რომ მოდელი ბევრ ცრუ განგაშს იძლევა.
 
 
 ## საბოლოო შედეგი 
