@@ -119,6 +119,16 @@ CV AUC Mean: 0.9365
 
 ## MlFlow Tracking
 
+მლფლოუზე შევეცადე დამელოგა თითქმის ყველა ექსპერიმენტი რაც ჩავატარე. შევქმენი სხვადასხვა მოდელებისთვის ცალ-ცალკე 'ფაილი' , რამაც ბევრად თვალსაჩინო
+გახადა ექსპერიმენტები.
+
+dagshub ლინკი:  https://dagshub.com/ndoda23/MachineLearning---IEEE-CIS-Fraud-Detection
+
+ექსპერიმენტების ლინკი: https://dagshub.com/ndoda23/MachineLearning---IEEE-CIS-Fraud-Detection.mlflow/#/experiments
 
 
 ## საბოლოო შედეგი 
+
+საბოლოო შედეგად მაინც ავარჩიე LightGBM რომელმაც ოდნავ უფრო უკეთესი შედეგი მომცა ვიდრე XGBoost, მეორე ადგილზე უდაოდ XGBoost გავიდა.
+
+
