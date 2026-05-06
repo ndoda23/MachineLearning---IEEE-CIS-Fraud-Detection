@@ -114,7 +114,7 @@ Train ROC-AUC: 0.9563
 CV AUC Mean: 0.9365
  
 
-### logistic Regression
+### Logistic Regression
 
 ასევე ვცადე ლოჯისტიკ რეგრესიის რამდენიმე ვარიანტიც , რომელმაც საკამოდ სოლიდურიო შედეგი დადო.
 
